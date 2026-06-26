@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Track Your Order · Mebran</title>
+<meta name="description" content="Track your Mebran order — enter your order number to see real-time status from packing to your doorstep.">
+<link rel="stylesheet" href="mebran.css">
+<link rel="stylesheet" href="pages.css">
+</head>
+<body data-nav="">
+
+<div id="site-header"></div>
+
+<nav class="crumb" aria-label="Breadcrumb">
+  <div class="wrap crumb-inner">
+    <a href="Mebran Homepage.html">Home</a>
+    <span class="sep">/</span>
+    <span class="here">Track Order</span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero center">
+  <div class="wrap page-hero-inner">
+    <span class="eyebrow center">Order Tracking</span>
+    <h1>Where's my order?</h1>
+    <p>Enter your order number and email to see exactly where your freshly packed parcel is.</p>
+  </div>
+</section>
+
+<!-- SEARCH CARD -->
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <form class="track-search" id="trackForm">
+      <h2>Track your parcel</h2>
+      <p>Find your order number in your confirmation email or dispatch message.</p>
+      <div class="field"><label>Order Number <span class="req">*</span></label><input class="input" id="trackId" type="text" required placeholder="MBR-12345"></div>
+      <div class="field"><label>Email <span class="req">*</span></label><input class="input" type="email" required placeholder="you@email.com"></div>
+      <button class="btn btn--gold" type="submit">Track Order
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+    </form>
+
+    <!-- RESULT -->
+    <div class="track-result hidden" id="trackResult">
+      <div class="track-head">
+        <div>
+          <div class="th-id">Order · <span id="trackResultId">MBR-12345</span></div>
+          <h3>Out for delivery</h3>
+        </div>
+        <span class="th-status">In Transit</span>
+      </div>
+      <div class="track-body">
+        <div class="track-timeline">
+          <div class="tt-step done">
+            <div class="tt-marker"><div class="tt-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div><div class="tt-line"></div></div>
+            <div class="tt-content"><h4>Order confirmed</h4><p>We've received your order and payment.</p><div class="tt-time">Mon, 22 Jun · 09:14</div></div>
+          </div>
+          <div class="tt-step done">
+            <div class="tt-marker"><div class="tt-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div><div class="tt-line"></div></div>
+            <div class="tt-content"><h4>Freshly packed</h4><p>Sealed in small batches at our Mumbai facility.</p><div class="tt-time">Mon, 22 Jun · 16:40</div></div>
+          </div>
+          <div class="tt-step done">
+            <div class="tt-marker"><div class="tt-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div><div class="tt-line"></div></div>
+            <div class="tt-content"><h4>Dispatched</h4><p>Picked up by our courier partner.</p><div class="tt-time">Tue, 23 Jun · 08:05</div></div>
+          </div>
+          <div class="tt-step current">
+            <div class="tt-marker"><div class="tt-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 3h13v13H1z"/><path d="M14 8h4l3 3v5h-7"/><circle cx="6" cy="19" r="2"/><circle cx="17" cy="19" r="2"/></svg></div><div class="tt-line"></div></div>
+            <div class="tt-content"><h4>Out for delivery</h4><p>Your parcel is on the vehicle and arriving today.</p><div class="tt-time">Today · 10:22</div></div>
+          </div>
+          <div class="tt-step">
+            <div class="tt-marker"><div class="tt-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div></div>
+            <div class="tt-content"><h4>Delivered</h4><p>Estimated by 7:00 PM today.</p><div class="tt-time">Expected today</div></div>
+          </div>
+        </div>
+
+        <div class="track-items">
+          <h4>In this order</h4>
+          <div class="track-item">
+            <div class="track-item-media"><div class="ph ph--gold"></div></div>
+            <div class="track-item-info"><b>Ajwa Dates</b><span>Premium · 500g</span></div>
+            <span style="font-size:13px;color:var(--text-soft)">× 2</span>
+          </div>
+          <div class="track-item">
+            <div class="track-item-media"><div class="ph ph--gold"></div></div>
+            <div class="track-item-info"><b>Iranian Pistachios</b><span>Roasted · 250g</span></div>
+            <span style="font-size:13px;color:var(--text-soft)">× 1</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- help -->
+    <div class="faq-cta reveal" style="max-width:760px;margin:54px auto 0">
+      <h3>Need a hand?</h3>
+      <p>Can't find your order number, or something doesn't look right? We're happy to help.</p>
+      <div class="final-cta" style="justify-content:center">
+        <a class="btn btn--primary" href="Contact.html">Contact Support</a>
+        <a class="btn btn--ghost" href="FAQ.html">Read the FAQ</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+
+<script src="chrome.js"></script>
+<script src="mebran.js"></script>
+<script src="pages.js"></script>
+</body>
+</html>

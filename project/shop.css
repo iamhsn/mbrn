@@ -1,0 +1,167 @@
+/* ============================================================
+   MEBRAN — Shop / Collection page
+   Extends mebran.css tokens & components
+   ============================================================ */
+
+/* ---------- Breadcrumb (shared w/ pdp pattern) ---------- */
+.crumb{ border-bottom: 1px solid var(--line); background: var(--ivory); }
+.crumb-inner{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; padding-block: 18px; font-size:12.5px; color: var(--text-soft); }
+.crumb-inner a{ color: var(--text-soft); transition: color .25s; }
+.crumb-inner a:hover{ color: var(--plum); }
+.crumb-inner .sep{ opacity:.5; }
+.crumb-inner .here{ color: var(--plum); font-weight:600; }
+
+/* ============================================================
+   SHOP HERO
+   ============================================================ */
+.shop-hero{ background: var(--plum); color: var(--ivory); position:relative; overflow:hidden; }
+.shop-hero::before{
+  content:""; position:absolute; right:-120px; top:-120px; width:420px; height:420px; border-radius:50%;
+  background: radial-gradient(circle, rgba(201,168,91,.18), transparent 70%);
+}
+.shop-hero-inner{ position:relative; z-index:1; padding-block: clamp(48px,7vw,92px); max-width: 760px; }
+.shop-hero .eyebrow{ color: var(--gold-soft); }
+.shop-hero h1{
+  font-family: var(--serif); font-weight:500;
+  font-size: clamp(40px,6vw,72px); line-height:1.0; letter-spacing:-.02em; margin-top: 18px; color: var(--ivory);
+}
+.shop-hero p{ color: rgba(248,245,239,.72); font-size:17px; margin-top: 20px; max-width: 52ch; line-height:1.6; }
+
+/* ---------- Category tabs ---------- */
+.cat-tabs{
+  display:flex; gap: 10px; flex-wrap:wrap; margin-top: 36px;
+}
+.cat-tab{
+  padding: 11px 22px; border-radius: 40px; font-size:14px; font-weight:500;
+  color: rgba(248,245,239,.82); box-shadow: inset 0 0 0 1px rgba(248,245,239,.24);
+  transition: background .25s, color .25s, box-shadow .25s, transform .2s;
+}
+.cat-tab:hover{ transform: translateY(-2px); box-shadow: inset 0 0 0 1px var(--gold-soft); color: var(--ivory); }
+.cat-tab.active{ background: var(--gold); color: var(--plum-deep); box-shadow:none; font-weight:600; }
+.cat-tab span{ opacity:.55; font-size:12px; margin-left:5px; }
+.cat-tab.active span{ opacity:.7; }
+
+/* ============================================================
+   SHOP LAYOUT
+   ============================================================ */
+.shop{ padding-block: clamp(40px,5vw,72px); }
+.shop-layout{ display:grid; grid-template-columns: 252px 1fr; gap: clamp(28px,4vw,56px); align-items:start; }
+
+/* ---------- Filters sidebar ---------- */
+.filters{ position: sticky; top: calc(var(--header-h) + 20px); }
+.filter-group{ padding-block: 24px; border-bottom: 1px solid var(--line); }
+.filter-group:first-child{ padding-top:0; }
+.filter-group h4{
+  font-family: var(--mono); font-size:11px; letter-spacing:.2em; text-transform:uppercase;
+  color: var(--gold-deep); margin-bottom: 16px; font-weight:600;
+}
+.fopt{ display:flex; align-items:center; gap: 12px; padding: 8px 0; cursor:pointer; font-size:14.5px; color: var(--text); transition: color .2s; }
+.fopt:hover{ color: var(--plum); }
+.fopt input{ position:absolute; opacity:0; width:0; height:0; }
+.fbox{
+  width:18px; height:18px; border-radius: 4px; box-shadow: inset 0 0 0 1.5px var(--line-strong);
+  flex-shrink:0; display:flex; align-items:center; justify-content:center; transition: background .2s, box-shadow .2s;
+}
+.fbox svg{ width:12px; height:12px; color: var(--ivory); opacity:0; transition: opacity .2s; }
+.fopt input:checked + .fbox{ background: var(--plum); box-shadow:none; }
+.fopt input:checked + .fbox svg{ opacity:1; }
+.fopt .fcount{ margin-left:auto; font-size:12px; color: var(--text-soft); }
+.filter-clear{
+  margin-top: 22px; font-size:13px; color: var(--plum); border-bottom:1px solid var(--line-strong);
+  padding-bottom:2px; width:max-content; transition: color .2s, border-color .2s;
+}
+.filter-clear:hover{ color: var(--gold-deep); border-color: var(--gold-deep); }
+
+/* ---------- Toolbar ---------- */
+.shop-toolbar{
+  display:flex; align-items:center; justify-content:space-between; gap:18px; flex-wrap:wrap;
+  padding-bottom: 22px; margin-bottom: 28px; border-bottom: 1px solid var(--line);
+}
+.shop-count{ font-size:14px; color: var(--text-soft); }
+.shop-count b{ color: var(--text); font-weight:600; }
+.toolbar-right{ display:flex; align-items:center; gap: 14px; }
+.filter-toggle{
+  display:none; align-items:center; gap:8px; font-size:13px; font-weight:600;
+  padding: 11px 18px; border-radius: var(--radius); box-shadow: inset 0 0 0 1px var(--line-strong); color: var(--plum);
+}
+.filter-toggle svg{ width:16px; height:16px; }
+.sort-wrap{ display:flex; align-items:center; gap:10px; }
+.sort-wrap label{ font-size:13px; color: var(--text-soft); }
+.sort-select{
+  position:relative; font-family: var(--sans); font-size:14px; font-weight:500; color: var(--text);
+  padding: 11px 40px 11px 16px; border-radius: var(--radius); background:#fff;
+  box-shadow: inset 0 0 0 1px var(--line-strong); cursor:pointer; appearance:none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232F1A47' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat:no-repeat; background-position: right 14px center; background-size: 16px;
+  transition: box-shadow .2s;
+}
+.sort-select:hover, .sort-select:focus{ box-shadow: inset 0 0 0 1px var(--plum); outline:none; }
+
+/* ---------- Active chips ---------- */
+.active-chips{ display:flex; gap:10px; flex-wrap:wrap; margin-bottom: 24px; }
+.active-chips:empty{ display:none; }
+.chip{
+  display:inline-flex; align-items:center; gap:8px; font-size:13px; font-weight:500; color: var(--plum);
+  background: var(--ivory-warm); padding: 8px 8px 8px 14px; border-radius: 30px;
+}
+.chip button{ width:20px; height:20px; border-radius:50%; display:flex; align-items:center; justify-content:center; color: var(--plum); background: rgba(47,26,71,.08); transition: background .2s, color .2s; }
+.chip button:hover{ background: var(--plum); color: var(--ivory); }
+.chip button svg{ width:11px; height:11px; }
+
+/* ---------- Grid ---------- */
+.shop-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.shop-grid .product-card{ flex:none; }
+.shop-grid .product-card a.pc-link{ display:contents; }
+
+/* clickable card overlay link (keeps buttons usable) */
+.product-card{ position:relative; }
+.pc-cardlink{ position:absolute; inset:0; z-index:1; }
+.product-card .pc-wish, .product-card .pc-quickadd, .product-card .pc-add{ z-index:2; }
+
+/* ---------- Empty ---------- */
+.shop-empty{ grid-column: 1 / -1; text-align:center; padding: 80px 20px; }
+.shop-empty svg{ width:54px; height:54px; color: var(--stone-deep); margin-bottom:18px; }
+.shop-empty h3{ font-family: var(--serif); font-size:26px; font-weight:500; margin-bottom:8px; }
+.shop-empty p{ color: var(--text-soft); font-size:15px; margin-bottom: 22px; }
+
+/* ---------- Load more ---------- */
+.shop-more{ text-align:center; margin-top: 48px; }
+
+/* ============================================================
+   PROMO BANNER (mid grid feel) — reuse plum
+   ============================================================ */
+.shop-assure{ background: var(--ivory-warm); }
+.shop-assure-grid{ display:grid; grid-template-columns: repeat(4,1fr); gap: 30px; }
+.sa-item{ display:flex; gap:14px; align-items:flex-start; }
+.sa-item svg{ width:26px; height:26px; color: var(--gold-deep); flex-shrink:0; }
+.sa-item b{ display:block; font-size:14.5px; font-weight:600; }
+.sa-item span{ font-size:13px; color: var(--text-soft); }
+
+/* ---------- Mobile filter drawer ---------- */
+.filters-backdrop{ display:none; }
+
+@media (max-width: 980px){
+  .shop-layout{ grid-template-columns: 1fr; }
+  .filters{
+    position: fixed; top:0; left:0; height:100%; width: min(340px,90vw); background: var(--ivory);
+    z-index: 84; transform: translateX(-100%); transition: transform .45s var(--ease);
+    padding: 26px 28px; overflow-y:auto; box-shadow: 20px 0 60px -30px rgba(28,28,28,.5);
+  }
+  .filters.open{ transform:none; }
+  .filters-head{ display:flex !important; align-items:center; justify-content:space-between; margin-bottom: 20px; }
+  .filters-head h3{ font-family: var(--serif); font-size:24px; font-weight:500; }
+  .filter-toggle{ display:inline-flex; }
+  .filters-backdrop{ display:block; position:fixed; inset:0; background: rgba(28,28,28,.5); backdrop-filter: blur(3px); opacity:0; visibility:hidden; transition: opacity .4s, visibility .4s; z-index:83; }
+  .filters-backdrop.show{ opacity:1; visibility:visible; }
+  .shop-grid{ grid-template-columns: repeat(2,1fr); }
+  .shop-assure-grid{ grid-template-columns: 1fr 1fr; gap: 26px; }
+}
+.filters-head{ display:none; }
+.filters-head .drawer-close{ width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; }
+.filters-head .drawer-close svg{ width:20px; height:20px; }
+
+@media (max-width: 560px){
+  .shop-grid{ grid-template-columns: 1fr; }
+  .shop-assure-grid{ grid-template-columns: 1fr; }
+  .toolbar-right{ width:100%; justify-content:space-between; }
+}

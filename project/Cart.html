@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cart &amp; Checkout · Mebran</title>
+<meta name="description" content="Review your cart and check out securely. Premium dates, dry fruits and nuts — freshly packed and delivered across India.">
+<link rel="stylesheet" href="mebran.css">
+<link rel="stylesheet" href="pages.css">
+</head>
+<body data-nav="">
+
+<div id="site-header"></div>
+
+<nav class="crumb" aria-label="Breadcrumb">
+  <div class="wrap crumb-inner">
+    <a href="Mebran Homepage.html">Home</a>
+    <span class="sep">/</span>
+    <span class="here">Cart &amp; Checkout</span>
+  </div>
+</nav>
+
+<!-- HERO + STEPS -->
+<section class="page-hero">
+  <div class="wrap page-hero-inner" style="max-width:1320px">
+    <span class="eyebrow">Secure Checkout</span>
+    <h1>Your cart.</h1>
+    <div class="co-steps">
+      <span class="co-step active" data-step="1"><span class="n">1</span> Cart</span>
+      <span class="bar"></span>
+      <span class="co-step" data-step="2"><span class="n">2</span> Details</span>
+      <span class="bar"></span>
+      <span class="co-step" data-step="3"><span class="n">3</span> Payment</span>
+    </div>
+  </div>
+</section>
+
+<!-- CHECKOUT -->
+<section class="checkout">
+  <div class="wrap checkout-grid">
+
+    <!-- LEFT: step panels -->
+    <div class="checkout-main">
+
+      <!-- STEP 1 — CART -->
+      <div id="stepCart">
+        <div class="co-block">
+          <h2 class="co-section-title"><span class="step-idx">01</span> Review your items</h2>
+          <p class="sub">Adjust quantities or remove items before you continue.</p>
+          <div class="co-items" id="coItems"></div>
+          <div class="hero-cta" style="margin-top:32px">
+            <button class="btn btn--gold" id="toDetails">Continue to Details
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+            <a class="btn btn--ghost" href="Shop.html">Keep Shopping</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 2 — DETAILS -->
+      <div id="stepDetails" style="display:none">
+        <div class="co-block">
+          <h2 class="co-section-title"><span class="step-idx">02</span> Contact &amp; delivery</h2>
+          <p class="sub">Where should we send your order?</p>
+          <form id="detailsForm" class="form-card">
+            <div class="field-row">
+              <div class="field"><label>First Name <span class="req">*</span></label><input class="input" type="text" required placeholder="Aisha"></div>
+              <div class="field"><label>Last Name <span class="req">*</span></label><input class="input" type="text" required placeholder="Rahman"></div>
+            </div>
+            <div class="field-row">
+              <div class="field"><label>Email <span class="req">*</span></label><input class="input" type="email" required placeholder="you@email.com"></div>
+              <div class="field"><label>Phone <span class="req">*</span></label><input class="input" type="tel" required placeholder="+91 98765 43210"></div>
+            </div>
+            <div class="field"><label>Address <span class="req">*</span></label><input class="input" type="text" required placeholder="Flat / House no, Street, Area"></div>
+            <div class="field-row">
+              <div class="field"><label>City <span class="req">*</span></label><input class="input" type="text" required placeholder="Mumbai"></div>
+              <div class="field"><label>PIN Code <span class="req">*</span></label><input class="input" type="text" required placeholder="400001"></div>
+            </div>
+            <div class="field">
+              <label>State <span class="req">*</span></label>
+              <select class="select" required>
+                <option value="">Select state</option>
+                <option>Maharashtra</option><option>Karnataka</option><option>Delhi</option>
+                <option>Telangana</option><option>Tamil Nadu</option><option>Gujarat</option>
+                <option>West Bengal</option><option>Uttar Pradesh</option><option>Other</option>
+              </select>
+            </div>
+            <div class="field" style="margin-bottom:6px">
+              <label>Delivery Notes <span style="opacity:.5">(optional)</span></label>
+              <textarea class="textarea" style="min-height:84px" placeholder="Gate code, landmark, preferred time…"></textarea>
+            </div>
+          </form>
+          <div class="hero-cta" style="margin-top:28px">
+            <button class="btn btn--gold" id="toPayment">Continue to Payment
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+            <button class="btn btn--ghost" id="backToCart">Back to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 3 — PAYMENT -->
+      <div id="stepPayment" style="display:none">
+        <div class="co-block">
+          <h2 class="co-section-title"><span class="step-idx">03</span> Payment</h2>
+          <p class="sub">All transactions are secure and encrypted.</p>
+          <div class="form-card">
+            <label class="pay-opt">
+              <input type="radio" name="pay" checked>
+              <span class="radio"></span>
+              <span><span class="pay-name">UPI</span><span class="pay-desc">GPay · PhonePe · Paytm</span></span>
+              <span class="pay-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M11 18h2"/></svg></span>
+            </label>
+            <label class="pay-opt">
+              <input type="radio" name="pay">
+              <span class="radio"></span>
+              <span><span class="pay-name">Credit / Debit Card</span><span class="pay-desc">Visa · Mastercard · RuPay</span></span>
+              <span class="pay-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg></span>
+            </label>
+            <label class="pay-opt">
+              <input type="radio" name="pay">
+              <span class="radio"></span>
+              <span><span class="pay-name">Net Banking</span><span class="pay-desc">All major banks supported</span></span>
+              <span class="pay-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M4 10h16M5 10V7l7-4 7 4v3M8 10v8M12 10v8M16 10v8"/></svg></span>
+            </label>
+            <label class="pay-opt">
+              <input type="radio" name="pay">
+              <span class="radio"></span>
+              <span><span class="pay-name">Cash on Delivery</span><span class="pay-desc">Pay when it arrives</span></span>
+              <span class="pay-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/></svg></span>
+            </label>
+          </div>
+          <div class="hero-cta" style="margin-top:28px">
+            <button class="btn btn--gold" id="placeOrder">Place Order · <span id="successTotalBtn"></span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            </button>
+            <button class="btn btn--ghost" id="backToDetails">Back to Details</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 4 — SUCCESS -->
+      <div id="stepSuccess" style="display:none">
+        <div class="co-success">
+          <div class="tick-ring"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div>
+          <h1>Thank you for your order.</h1>
+          <p>We've received your order and our team is freshly packing it now. A confirmation has been sent to your email with tracking details.</p>
+          <div class="order-ref">Order Ref · <span id="orderRef">MBR-00000</span></div>
+          <p style="font-size:14px;margin-top:18px">Order total <b id="successTotal" style="color:var(--plum)"></b></p>
+          <div class="final-cta" style="justify-content:center;margin-top:30px">
+            <a class="btn btn--primary" href="Track Order.html">Track Your Order</a>
+            <a class="btn btn--ghost" href="Shop.html">Continue Shopping</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RIGHT: order summary -->
+    <aside class="order-summary">
+      <div class="os-head"><h3>Order Summary</h3></div>
+      <div class="os-lines" id="osLines"></div>
+      <div class="os-promo">
+        <input class="input" type="text" id="promoInput" placeholder="Promo code">
+        <button id="promoApply">Apply</button>
+      </div>
+      <div class="os-totals">
+        <div class="os-row"><span>Subtotal</span><span id="osSub">₹0</span></div>
+        <div class="os-row"><span>Shipping</span><span id="osShip">—</span></div>
+        <div class="os-row grand"><span>Total</span><b id="osTotal">₹0</b></div>
+      </div>
+      <div class="drawer-ship" style="margin:0 28px;border-radius:var(--radius)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M1 3h13v13H1z"/><path d="M14 8h4l3 3v5h-7"/><circle cx="6" cy="19" r="2"/><circle cx="17" cy="19" r="2"/></svg>
+        <span id="osShipMsg">Free shipping on orders above ₹999</span>
+        <span class="ship-bar"><i id="osShipBar" style="width:0%"></i></span>
+      </div>
+      <div class="os-foot">
+        <div class="os-trust">
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 3v6c0 5-3.4 9-8 11-4.6-2-8-6-8-11V5z"/><path d="M9 12l2 2 4-4"/></svg> Secure</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8"/></svg> Freshly Packed</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9"/><path d="M3 4v5h5"/></svg> Easy Returns</span>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</section>
+
+<div id="site-footer"></div>
+
+<script src="chrome.js"></script>
+<script src="mebran.js"></script>
+<script src="checkout.js"></script>
+<script>
+  /* keep the Place Order button label in sync with the live total */
+  (function(){
+    const M = window.MEBRAN; if(!M) return;
+    const sync = ()=>{ const b = document.getElementById('successTotalBtn'); if(b) b.textContent = M.inr(M.subtotal() + (M.subtotal()>=M.freeShip||M.subtotal()===0?0:79)); };
+    M.onCartChange(sync); sync();
+  })();
+</script>
+</body>
+</html>
